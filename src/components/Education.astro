@@ -1,0 +1,101 @@
+---
+import { education, academicAccomplishments } from '../data/site';
+---
+
+<section id="education" class="section" aria-labelledby="education-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Education</span>
+      <h2 id="education-heading">Academic foundation</h2>
+      <p class="section-intro">
+        Engineering and knowledge-engineering credentials underpinning a career from embedded systems to cloud and AI.
+      </p>
+    </header>
+
+    <ul class="education-list">
+      {education.map((item) => (
+        <li>
+          <article class="education-card card">
+            <header class="education-header">
+              <div>
+                <h3>{item.degree}</h3>
+                <p class="institution">{item.institution}</p>
+              </div>
+              <div class="meta">
+                <span class="year">{item.year}</span>
+                <span class="location">{item.location}</span>
+              </div>
+            </header>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <aside class="accomplishments" aria-labelledby="accomplishments-heading">
+      <h3 id="accomplishments-heading">Academic accomplishments</h3>
+      <ul class="accomplishment-list">
+        {academicAccomplishments.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .education-list {
+    list-style: none;
+    margin: 0 0 var(--space-xl);
+    padding: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .education-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .institution {
+    margin: 0.15rem 0 0;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    font-size: 0.875rem;
+    color: var(--color-text-subtle);
+    text-align: right;
+  }
+
+  .year {
+    font-weight: 500;
+  }
+
+  .accomplishments {
+    padding: var(--space-xl);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .accomplishments h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .accomplishment-list {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--color-text-muted);
+  }
+
+  .accomplishment-list li + li {
+    margin-top: var(--space-xs);
+  }
+</style>

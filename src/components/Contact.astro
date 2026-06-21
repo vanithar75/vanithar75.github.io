@@ -1,6 +1,5 @@
 ---
 import { site } from '../data/site';
-const isEmailPlaceholder = site.email.startsWith('[');
 ---
 
 <section id="contact" class="section section-alt" aria-labelledby="contact-heading">
@@ -28,16 +27,6 @@ const isEmailPlaceholder = site.email.startsWith('[');
           <a href={site.github} rel="noopener noreferrer" target="_blank">
             github.com/vanithar75
           </a>
-        </li>
-        <li>
-          <span class="label">Email</span>
-          {isEmailPlaceholder ? (
-            <span class="placeholder-note">
-              {site.email} — replace in <code>src/data/site.ts</code>
-            </span>
-          ) : (
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-          )}
         </li>
         <li>
           <span class="label">Location</span>
@@ -85,10 +74,5 @@ const isEmailPlaceholder = site.email.startsWith('[');
   .contact-links a {
     font-weight: 500;
     text-decoration: none;
-  }
-
-  .contact-links code {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
   }
 </style>

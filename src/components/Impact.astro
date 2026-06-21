@@ -1,0 +1,35 @@
+---
+import { impact } from '../data/site';
+---
+
+<section id="impact" class="section" aria-labelledby="impact-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Impact</span>
+      <h2 id="impact-heading">Edge-to-cloud signature work</h2>
+      <p class="section-intro">{impact.intro}</p>
+    </header>
+
+    <ul class="impact-list">
+      {impact.highlights.map((highlight) => (
+        <li class="impact-item card">{highlight}</li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .impact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .impact-item {
+    color: var(--color-text-muted);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+  }
+</style>
