@@ -37,9 +37,9 @@ export const impact = {
 
 export const focusAreas = [
   {
-    title: 'AI-Native Practice',
+    title: 'AI-Native Solution Architecture Practice',
     description:
-      'Designing repeatable Cursor and agent workflows that produce defensible artifacts—not demo apps. Standards-aware delivery aligned to NIST AI RMF, EU AI Act, and ISO 42001.',
+      'Leading operational product and process transformation for public safety through AI-native design. Modernizing systems of record, systems of engagement, and systems of intelligence with responsible, ethical AI at the core. Repeatable agent workflows and standards-aware delivery aligned to NIST AI RMF, EU AI Act, and ISO 42001.',
   },
   {
     title: 'Enterprise AI Governance',
@@ -64,7 +64,7 @@ export const focusAreas = [
   {
     title: 'Public Safety & Critical Infrastructure',
     description:
-      'Thought leadership on CAD, incident management, control-room operations, and data-driven resilience for police, fire, and emergency services ecosystems.',
+      'Domain expertise across CAD, incident management, control-room operations, and emergency services ecosystems. Thought leadership on data-driven resilience and the evolution from voice-centric to intelligence-led public safety platforms.',
   },
 ] as const;
 
