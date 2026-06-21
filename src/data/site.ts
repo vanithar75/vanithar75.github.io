@@ -13,7 +13,7 @@ export const hero = {
   headline:
     'Passionate technologist · AI practitioner · Principal Architect · Thought Leader',
   summaries: [
-    'I translate complex edge-to-cloud, telco, and enterprise AI challenges into clear strategy and executable roadmaps— built in governance, sovereignty, and real-world delivery across APAC.',
+    'I translate complex edge-to-cloud, telco, and enterprise AI challenges into  strategy and executable roadmaps— built in governance, sovereignty, and real-world delivery across APAC.',
     'Versatile professional — solving complex product, process, and ecosystem challenges to drive growth.',
   ],
 } as const;
@@ -184,11 +184,6 @@ export const education = [
     location: 'India',
     year: '1997',
   },
-] as const;
-
-export const academicAccomplishments = [
-  'Recipient of Best Project Award at NUS for Master\'s project "Forecast of prolonged Heavy Rainfall in Singapore"',
-  'Scored Distinction (80+ %) in both Undergraduate and Master\'s degrees',
 ] as const;
 
 export const certifications = [
