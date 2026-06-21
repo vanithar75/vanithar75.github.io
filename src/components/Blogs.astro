@@ -1,0 +1,229 @@
+---
+import { getCollection } from 'astro:content';
+import { publications } from '../data/site';
+
+const posts = (await getCollection('blogs')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<section id="blogs" class="section" aria-labelledby="blogs-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Blogs</span>
+      <h2 id="blogs-heading">Thought leadership</h2>
+      <p class="section-intro">
+        Long-form articles on edge-to-cloud architecture, enterprise AI, telco convergence, IoT
+        device management, and sovereign infrastructure—originally published on LinkedIn.
+      </p>
+    </header>
+
+    <ul class="blog-list">
+      {posts.map((post) => (
+        <li>
+          <article class="blog-card card">
+            {post.data.coverImage && (
+              <a class="cover-link" href={`/blog/${post.slug}/`} aria-hidden="true" tabindex="-1">
+                <img
+                  class="cover"
+                  src={post.data.coverImage}
+                  alt=""
+                  width="320"
+                  height="180"
+                  loading="lazy"
+                />
+              </a>
+            )}
+            <div class="blog-body">
+              <time class="date" datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-SG', {
+                  year: 'numeric',
+                  month: 'short',
+                  day: 'numeric',
+                })}
+              </time>
+              <h3>
+                <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+              </h3>
+              {post.data.description && <p class="excerpt">{post.data.description}</p>}
+              <p class="meta">
+                <a class="read-more" href={`/blog/${post.slug}/`}>Read article</a>
+                <span class="sep" aria-hidden="true">·</span>
+                <a
+                  class="source-link"
+                  href={post.data.sourceUrl}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  LinkedIn
+                </a>
+              </p>
+            </div>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <aside class="publications" aria-labelledby="publications-heading">
+      <h3 id="publications-heading">Talks &amp; external publications</h3>
+      <ul class="publication-list">
+        {publications.articles.map((article) => (
+          <li>
+            <a href={article.url} rel="noopener noreferrer" target="_blank">
+              {article.title}
+            </a>
+            <span class="publisher">{article.type}</span>
+          </li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .blog-list {
+    list-style: none;
+    margin: 0 0 var(--space-xl);
+    padding: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .blog-card {
+    display: grid;
+    gap: var(--space-md);
+    padding: 0;
+    overflow: hidden;
+  }
+
+  @media (min-width: 40rem) {
+    .blog-card {
+      grid-template-columns: 10rem 1fr;
+    }
+  }
+
+  .cover-link {
+    display: block;
+    line-height: 0;
+  }
+
+  .cover {
+    width: 100%;
+    height: 100%;
+    min-height: 8rem;
+    object-fit: cover;
+    aspect-ratio: 16 / 9;
+  }
+
+  @media (min-width: 40rem) {
+    .cover {
+      min-height: 6.5rem;
+    }
+  }
+
+  .blog-body {
+    padding: var(--space-md);
+  }
+
+  @media (min-width: 40rem) {
+    .blog-body {
+      padding: var(--space-md) var(--space-lg) var(--space-md) 0;
+    }
+  }
+
+  .date {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-subtle);
+    margin-bottom: var(--space-xs);
+  }
+
+  .blog-card h3 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .blog-card h3 a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1.0625rem;
+  }
+
+  .blog-card h3 a:hover {
+    color: var(--color-accent);
+  }
+
+  .excerpt {
+    margin: 0 0 var(--space-sm);
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .meta {
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  .read-more {
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  .read-more:hover {
+    text-decoration: underline;
+  }
+
+  .sep {
+    color: var(--color-text-subtle);
+    margin: 0 0.35rem;
+  }
+
+  .source-link {
+    color: var(--color-text-subtle);
+    text-decoration: none;
+  }
+
+  .source-link:hover {
+    color: var(--color-accent);
+  }
+
+  .publications {
+    padding: var(--space-xl);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .publications h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .publication-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .publication-list a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .publication-list a:hover {
+    color: var(--color-accent);
+  }
+
+  .publisher {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-subtle);
+    margin-top: 0.1rem;
+  }
+</style>

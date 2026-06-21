@@ -211,7 +211,7 @@ export const projects = [
   },
 ] as const;
 
-export const writing = {
+export const publications = {
   intro:
     'Talks, workshops, and publications on IoT, edge-to-cloud architecture, and enterprise infrastructure strategy—alongside long-form thought leadership on public safety and AI-ready operations.',
   articles: [
@@ -270,6 +270,6 @@ export const navLinks = [
   { href: '#experience', label: 'Experience' },
   { href: '#education', label: 'Education' },
   { href: '#projects', label: 'Projects' },
-  { href: '#writing', label: 'Writing' },
+  { href: '#blogs', label: 'Blogs' },
   { href: '#contact', label: 'Contact' },
 ] as const;
