@@ -1,0 +1,31 @@
+---
+import { focusAreas } from '../data/site';
+---
+
+<section id="expertise" class="section section-alt" aria-labelledby="expertise-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Expertise</span>
+      <h2 id="expertise-heading">Focus areas</h2>
+      <p class="section-intro">
+        Where deep engineering meets governance, sovereignty, and strategic technology leadership.
+      </p>
+    </header>
+
+    <div class="card-grid">
+      {focusAreas.map((area) => (
+        <article class="card">
+          <h3>{area.title}</h3>
+          <p>{area.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-alt {
+    background: var(--color-bg-subtle);
+    border-block: 1px solid var(--color-border);
+  }
+</style>

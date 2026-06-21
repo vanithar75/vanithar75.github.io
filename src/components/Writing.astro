@@ -1,0 +1,70 @@
+---
+import { writing } from '../data/site';
+---
+
+<section id="writing" class="section" aria-labelledby="writing-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Writing</span>
+      <h2 id="writing-heading">Thought leadership</h2>
+      <p class="section-intro">{writing.intro}</p>
+    </header>
+
+    <ul class="article-list">
+      {writing.articles.map((article) => (
+        <li>
+          <article class="article-card card">
+            <h3>
+              <a href={article.url} rel="noopener noreferrer" target="_blank">
+                {article.title}
+              </a>
+            </h3>
+            <p class="publisher">{article.publisher}</p>
+          </article>
+        </li>
+      ))}
+    </ul>
+
+    <p class="blog-placeholder">
+      <strong>Coming soon:</strong> A dedicated blog for AI governance, edge-to-cloud strategy, and practitioner notes from the VibeCoding portfolio.
+    </p>
+  </div>
+</section>
+
+<style>
+  .article-list {
+    list-style: none;
+    margin: 0 0 var(--space-xl);
+    padding: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .article-card h3 {
+    margin-bottom: var(--space-xs);
+  }
+
+  .article-card h3 a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1.0625rem;
+  }
+
+  .article-card h3 a:hover {
+    color: var(--color-accent);
+  }
+
+  .publisher {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-subtle);
+  }
+
+  .blog-placeholder {
+    padding: var(--space-lg);
+    background: var(--color-accent-subtle);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+  }
+</style>

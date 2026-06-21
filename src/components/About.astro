@@ -1,0 +1,33 @@
+---
+import { about } from '../data/site';
+---
+
+<section id="about" class="section" aria-labelledby="about-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">About</span>
+      <h2 id="about-heading">Technology leadership with depth and clarity</h2>
+      <p class="section-intro">
+        Bridging the gap between business strategy and engineering execution—across telco, cloud, and enterprise AI.
+      </p>
+    </header>
+
+    <div class="about-content">
+      {about.paragraphs.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .about-content {
+    max-width: 44rem;
+    color: var(--color-text-muted);
+    font-size: 1.0625rem;
+  }
+
+  .about-content p:last-child {
+    margin-bottom: 0;
+  }
+</style>

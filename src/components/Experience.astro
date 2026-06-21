@@ -1,0 +1,151 @@
+---
+import { experience, certifications } from '../data/site';
+---
+
+<section id="experience" class="section" aria-labelledby="experience-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Experience</span>
+      <h2 id="experience-heading">Career highlights</h2>
+      <p class="section-intro">
+        Sourced from public LinkedIn profile and published work. Role dates marked for verification.
+      </p>
+    </header>
+
+    <ol class="timeline">
+      {experience.map((item) => (
+        <li class="timeline-item">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <article class="timeline-card card">
+            <header class="timeline-header">
+              <div>
+                <h3>{item.role}</h3>
+                <p class="company">{item.company}</p>
+              </div>
+              <div class="meta">
+                <span class="period">{item.period}</span>
+                <span class="location">{item.location}</span>
+              </div>
+            </header>
+            <ul class="highlights">
+              {item.highlights.map((highlight) => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </article>
+        </li>
+      ))}
+    </ol>
+
+    <aside class="certifications" aria-labelledby="certs-heading">
+      <h3 id="certs-heading">Certifications</h3>
+      <ul class="cert-list">
+        {certifications.map((cert) => (
+          <li>{cert}</li>
+        ))}
+      </ul>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .timeline {
+    list-style: none;
+    margin: 0 0 var(--space-2xl);
+    padding: 0;
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1rem 1fr;
+    gap: var(--space-md);
+    align-items: start;
+  }
+
+  .timeline-marker {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-top: 1.35rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    box-shadow: 0 0 0 4px var(--color-accent-subtle);
+  }
+
+  .timeline-header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .company {
+    margin: 0.15rem 0 0;
+    font-weight: 500;
+    color: var(--color-text-muted);
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.15rem;
+    font-size: 0.875rem;
+    color: var(--color-text-subtle);
+    text-align: right;
+  }
+
+  .period {
+    font-style: italic;
+  }
+
+  .highlights {
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--color-text-muted);
+  }
+
+  .highlights li + li {
+    margin-top: var(--space-xs);
+  }
+
+  .certifications {
+    padding: var(--space-xl);
+    background: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+  }
+
+  .certifications h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cert-list {
+    display: grid;
+    gap: var(--space-sm);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .cert-list li {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .cert-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 0.35rem;
+    height: 0.35rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+</style>

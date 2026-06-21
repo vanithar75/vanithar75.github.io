@@ -1,0 +1,163 @@
+---
+import { site, hero } from '../data/site';
+---
+
+<section class="hero section" aria-labelledby="hero-heading">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <p class="eyebrow">Passionate Technologist · APAC</p>
+      <h1 id="hero-heading">{hero.headline}</h1>
+      <p class="tagline">{hero.tagline}</p>
+      <p class="summary">{hero.summary}</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-secondary" href={site.linkedin} rel="noopener noreferrer" target="_blank">
+          LinkedIn profile
+        </a>
+      </div>
+    </div>
+
+    <aside class="hero-aside" aria-label="Profile summary">
+      <div class="portrait-placeholder" role="img" aria-label="Profile photo placeholder — add your own image to public/images/profile.jpg">
+        <span class="initials" aria-hidden="true">VR</span>
+        <p class="portrait-note">
+          Add your photo at <code>public/images/profile.jpg</code>
+        </p>
+      </div>
+      <dl class="quick-facts">
+        <div>
+          <dt>Focus</dt>
+          <dd>Edge-to-cloud · Enterprise AI · Governance</dd>
+        </div>
+        <div>
+          <dt>Location</dt>
+          <dd>{site.location}</dd>
+        </div>
+        <div>
+          <dt>Trajectory</dt>
+          <dd>Practitioner-architect → CTO</dd>
+        </div>
+      </dl>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: calc(var(--space-3xl) + var(--space-md));
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, var(--color-accent-subtle), transparent),
+      var(--color-bg);
+  }
+
+  .hero-grid {
+    display: grid;
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  @media (min-width: 56rem) {
+    .hero-grid {
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+  }
+
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .tagline {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
+  }
+
+  .summary {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    max-width: 38rem;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .hero-aside {
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+  }
+
+  .portrait-placeholder {
+    aspect-ratio: 1;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, var(--color-bg-subtle), var(--color-bg-elevated));
+    border: 1px dashed var(--color-border);
+    display: grid;
+    place-items: center;
+    margin-bottom: var(--space-lg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .initials {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-text-subtle);
+    letter-spacing: 0.05em;
+  }
+
+  .portrait-note {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: var(--space-sm);
+    font-size: 0.6875rem;
+    text-align: center;
+    color: var(--color-text-subtle);
+    background: color-mix(in srgb, var(--color-bg-elevated) 90%, transparent);
+  }
+
+  .portrait-note code {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+  }
+
+  .quick-facts {
+    margin: 0;
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  .quick-facts div {
+    display: grid;
+    gap: 0.15rem;
+  }
+
+  .quick-facts dt {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+  }
+
+  .quick-facts dd {
+    margin: 0;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+</style>

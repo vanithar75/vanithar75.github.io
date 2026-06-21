@@ -1,0 +1,56 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="copyright">
+      &copy; {year} {site.name}. Built with Astro.
+    </p>
+    <ul class="footer-links">
+      <li>
+        <a href={site.linkedin} rel="noopener noreferrer" target="_blank">LinkedIn</a>
+      </li>
+      <li>
+        <a href={site.github} rel="noopener noreferrer" target="_blank">GitHub</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--space-xl);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-md);
+  }
+
+  .copyright {
+    margin: 0;
+    font-size: 0.875rem;
+    color: var(--color-text-subtle);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import { projects } from '../data/site';
+---
+
+<section id="projects" class="section section-alt" aria-labelledby="projects-heading">
+  <div class="container">
+    <header class="section-header">
+      <span class="section-label">Projects</span>
+      <h2 id="projects-heading">Portfolio & open work</h2>
+      <p class="section-intro">
+        Consulting-grade artifacts from my AI-native practice—governance tooling and repeatable delivery methodology.
+      </p>
+    </header>
+
+    <div class="card-grid">
+      {projects.map((project) => (
+        <article class="card project-card">
+          <h3>
+            <a href={project.url} rel="noopener noreferrer" target="_blank">
+              {project.name}
+            </a>
+          </h3>
+          <p>{project.description}</p>
+          {'note' in project && project.note && (
+            <p class="placeholder-note">{project.note}</p>
+          )}
+          <ul class="tag-list" aria-label={`${project.name} tags`}>
+            {project.tags.map((tag) => (
+              <li><span class="tag">{tag}</span></li>
+            ))}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-card h3 a {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .project-card h3 a:hover {
+    color: var(--color-accent);
+  }
+</style>
