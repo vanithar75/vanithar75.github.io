@@ -1,5 +1,5 @@
----
-import { education, academicAccomplishments } from '../data/site';
+﻿---
+import { education } from '../data/site';
 ---
 
 <section id="education" class="section" aria-label="Education">
@@ -29,15 +29,6 @@ import { education, academicAccomplishments } from '../data/site';
         </li>
       ))}
     </ul>
-
-    <aside class="accomplishments" aria-labelledby="accomplishments-heading">
-      <h3 id="accomplishments-heading">Academic accomplishments</h3>
-      <ul class="accomplishment-list">
-        {academicAccomplishments.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    </aside>
   </div>
 </section>
 
@@ -75,26 +66,5 @@ import { education, academicAccomplishments } from '../data/site';
 
   .year {
     font-weight: 500;
-  }
-
-  .accomplishments {
-    padding: var(--space-xl);
-    background: var(--color-bg-subtle);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-  }
-
-  .accomplishments h3 {
-    margin-bottom: var(--space-md);
-  }
-
-  .accomplishment-list {
-    margin: 0;
-    padding-left: 1.15rem;
-    color: var(--color-text-muted);
-  }
-
-  .accomplishment-list li + li {
-    margin-top: var(--space-xs);
   }
 </style>
