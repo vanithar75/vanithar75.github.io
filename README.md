@@ -1,6 +1,6 @@
 # vanithar75.github.io
 
-Professional personal website for **Vanitha Ramaswami** — passionate technologist, AI practitioner, and strategic technology leader on the path to CTO.
+Professional personal website for **Vanitha Ramaswami** — passionate technologist, AI practitioner, and strategic technology leader .
 
 Built with [Astro](https://astro.build) as a static site, deployed to GitHub Pages at [https://vanithar75.github.io](https://vanithar75.github.io).
 
