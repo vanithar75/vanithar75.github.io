@@ -108,10 +108,6 @@ Copy is synthesized from:
 
 - Public LinkedIn profile: [linkedin.com/in/vanithar75](https://www.linkedin.com/in/vanithar75/)
 - Motorola Solutions thought leadership (author page)
-- VibeCoding Planner workspace context (AI governance, edge-to-cloud portfolio)
-
-Items marked `[Dates to confirm]` or `[your-email@example.com]` need your input before publishing.
-
 ---
 
 ## License
